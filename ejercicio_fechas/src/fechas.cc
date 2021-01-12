@@ -22,45 +22,15 @@ int main (int argc, char* argv[]){
   std::string fichero_entrada{argv[1]};
   std::string fichero_salida{argv[2]};
   std::vector <Fechas> fechas_ordenar;
-  //std::ifstream input(fichero_entrada, std::ifstream::in);
-  /*for( std::string line; getline( input, line ); ){
-    int dia;
-    int mes;
-    int anio;
-    Fechas fecha_;
-    for (int i = 0; i <= line.size(); ++i){
-      if (i == 0){
-        std::string aux{""};
-        aux = line[i];
-        aux += line[i+1];
-        dia = stoi(aux);
-      }
-      else if(i = 3){
-        std::string aux{""};
-        aux = line[i];
-        aux += line[i+1];
-        mes = stoi(aux);
-      }
-      else if(i = 6){
-        std::string aux{""};
-        aux = line[i] + line[i+1] + line[i+2] + line[i+3];
-        anio = stoi(aux);
-      }
-      fecha_.SetDia(dia);
-      fecha_.SetMes(mes);
-      fecha_.SetAnio(anio);
-      fechas_ordenar.emplace_back(fecha_);
-    }
-    
-    
-  }*/
-
+  std::ifstream input(fichero_entrada, std::ifstream::in);
+  std::string line;
+  while (std::getline(input, line)){
+    fechas_ordenar.emplace_back(IntroducirFechas(line));
+  }
   
-  Fechas fecha_;
-  /*std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
-  fichero_modificado << fecha_.OrdenarFechas(fechas_ordenar);*/
-  std::cout << fecha_.OrdenarFechas(fechas_ordenar);
-
+  std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
+  fichero_modificado << OrdenarFechas(fechas_ordenar);
+  
   return 0;
 
 }
