@@ -22,14 +22,15 @@ int main (int argc, char* argv[]){
   std::string fichero_entrada{argv[1]};
   std::string fichero_salida{argv[2]};
   std::vector <Fechas> fechas_ordenar;
-  std::ifstream input(fichero_entrada, std::ifstream::in);
+  std::ifstream input;
+  input.open(fichero_entrada, std::ifstream::in);
   std::string line;
   while (std::getline(input, line)){
     fechas_ordenar.emplace_back(IntroducirFechas(line));
   }
-  
-  std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
-  fichero_modificado << OrdenarFechas(fechas_ordenar);
+  OrdenarFechas(fechas_ordenar, fichero_salida);
+  /*std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
+  fichero_modificado << OrdenarFechas(fechas_ordenar);*/
   
   return 0;
 

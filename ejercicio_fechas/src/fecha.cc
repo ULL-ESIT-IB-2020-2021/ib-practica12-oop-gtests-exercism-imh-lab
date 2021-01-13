@@ -44,7 +44,7 @@ void Fechas::SetMes(int mes_){
 void Fechas::SetAnio(int anio_){
   anio = anio_;
 }
-std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar){
+std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar, std::string fichero_salida){
   for (int i = 0; i < fechas_ordenar.size(); ++i){
     for (int j = i + 1; j < fechas_ordenar.size(); ++j){
       if (fechas_ordenar[i].anio < fechas_ordenar[j].anio){
@@ -68,8 +68,9 @@ std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar){
       }
     }
   }
-  
-  for (int k = 0; k <= fechas_ordenar.size(); ++k){
+  std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
+   
+  for (int k = 0; k < fechas_ordenar.size(); ++k){
     char caracter{'/'};
     int dia_retornar{fechas_ordenar[k].dia};
     std::string str1 = std::to_string(dia_retornar);
@@ -77,44 +78,45 @@ std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar){
     std::string str2 = std::to_string(mes_retornar); 
     int anio_retornar{fechas_ordenar[k].anio};
     std::string str3 = std::to_string(anio_retornar);
-    return (str1 + caracter + str2 + caracter + str3 + '\n');
+    std::string str4 = (str1 + caracter + str2 + caracter + str3 + '\n');
+    std::cout << str4;
+    fichero_modificado << str4;
+    return str4;
   }
   
 }
 std::vector <Fechas> IntroducirFechas(std::string fecha){
   std::vector <Fechas> fechas_ordenar;
   Fechas fecha_;
-  for (int k = 0; k < 5; ++k){
-      int dia;
-      int mes;
-      int anio;
-      std::string aux{""};
-      std::string aux2{""};
-      std::string aux3{""};
-      std::string aux4{""};
-      std::string aux5{""};
-      aux = fecha[0];
-      aux2 = fecha[1];
-      aux3 = aux + aux2;
-      dia = std::stoi(aux3);
-      std::cout << dia << "\n";
-      aux = fecha[3];
-      aux2 = fecha[4];
-      aux3 = aux + aux2;
-      mes = std::stoi(aux3);
-      std::cout << mes << "\n";
-      aux = fecha[6];
-      aux2 = fecha[7];
-      aux3 = fecha[8];
-      aux4 = fecha[9];
-      aux5 = aux + aux2 + aux3 + aux4;
-      anio = std::stoi(aux5);
-      std::cout << anio << "\n";
-      fecha_.SetDia(dia);
-      fecha_.SetMes(mes);
-      fecha_.SetAnio(anio);
-      fechas_ordenar.emplace_back(fecha_);   
-  }
+    int dia;
+    int mes;
+    int anio;
+    std::string aux{""};
+    std::string aux2{""};
+    std::string aux3{""};
+    std::string aux4{""};
+    std::string aux5{""};
+    aux = fecha[0];
+    aux2 = fecha[1];
+    aux3 = aux + aux2;
+    dia = std::stoi(aux3);
+    std::cout << dia << "\n";
+    aux = fecha[3];
+    aux2 = fecha[4];
+    aux3 = aux + aux2;
+    mes = std::stoi(aux3);
+    std::cout << mes << "\n";
+    aux = fecha[6];
+    aux2 = fecha[7];
+    aux3 = fecha[8];
+    aux4 = fecha[9];
+    aux5 = aux + aux2 + aux3 + aux4;
+    anio = std::stoi(aux5);
+    std::cout << anio << "\n";
+    fecha_.SetDia(dia);
+    fecha_.SetMes(mes);
+    fecha_.SetAnio(anio);
+    fechas_ordenar.emplace_back(fecha_);   
   
   return fechas_ordenar;
 }
