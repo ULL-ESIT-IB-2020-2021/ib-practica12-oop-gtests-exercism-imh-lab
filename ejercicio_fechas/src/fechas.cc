@@ -26,11 +26,14 @@ int main (int argc, char* argv[]){
   input.open(fichero_entrada, std::ifstream::in);
   std::string line;
   while (std::getline(input, line)){
-    fechas_ordenar.emplace_back(IntroducirFechas(line));
+    Fechas fecha_ordenar_1;
+    fecha_ordenar_1 = IntroducirFechas(line);
+    fechas_ordenar.emplace_back(fecha_ordenar_1);
   }
-  OrdenarFechas(fechas_ordenar, fichero_salida);
-  /*std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
-  fichero_modificado << OrdenarFechas(fechas_ordenar);*/
+  std::string fechas_ordenadas;
+  std::ofstream fichero_modificado(fichero_salida, std::ofstream::out);
+  fechas_ordenadas = OrdenarFechas(fechas_ordenar);
+  fichero_modificado << fechas_ordenadas;
   
   return 0;
 

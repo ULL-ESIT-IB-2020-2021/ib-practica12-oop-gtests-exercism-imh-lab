@@ -7,15 +7,13 @@ void Usage(int argc, char *argv[]);
 class Fechas{
   public: 
     Fechas(std::vector <Fechas> fechas_ordenar){
-
     }
     Fechas(){
-
     }
     void SetDia(int dia_);
     void SetMes(int mes_);
     void SetAnio(int anio_);
-    friend std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar, std::string fichero_salida);
+    friend std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar);
   private:
     int dia{0};
     int mes{0};
@@ -23,4 +21,4 @@ class Fechas{
     
 
 };
-std::vector <Fechas> IntroducirFechas(std::string fecha);
+Fechas IntroducirFechas(std::string fecha);
