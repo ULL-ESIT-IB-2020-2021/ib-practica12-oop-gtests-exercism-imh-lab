@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "complejo.cc"
+
 
 
 class Complejo{
@@ -12,3 +12,4 @@ class Complejo{
     Complejo Resta(Complejo complejo1, Complejo complejo2);
     void Print(Complejo resultado);
 };
+

@@ -91,7 +91,6 @@ std::string OrdenarFechas(std::vector <Fechas> fechas_ordenar){
     str4 += (str1 + caracter + str2 + caracter + str3 + '\n');
     
   }
-  std::cout << str4 << std::endl;
   
   return str4;
 }
@@ -110,13 +109,11 @@ Fechas IntroducirFechas(std::string fecha){
   aux2 = fecha[1];
   aux3 = aux + aux2;
   dia = std::stoi(aux3);
-  std::cout << dia << "\n";
 
   aux = fecha[3];
   aux2 = fecha[4];
   aux3 = aux + aux2;
   mes = std::stoi(aux3);
-  std::cout << mes << "\n";
 
   aux = fecha[6];
   aux2 = fecha[7];
@@ -124,7 +121,7 @@ Fechas IntroducirFechas(std::string fecha){
   aux4 = fecha[9];
   aux5 = aux + aux2 + aux3 + aux4;
   anio = std::stoi(aux5);
-  std::cout << anio << "\n";
+
 
   fecha_.SetDia(dia);
   fecha_.SetMes(mes);

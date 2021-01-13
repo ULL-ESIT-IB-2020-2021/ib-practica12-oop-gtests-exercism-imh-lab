@@ -5,9 +5,10 @@
  * Informática Básica
  * 
  * @author IMH-ISMAEL MARTIN HERRERA
- * @brief Este programa calcula las sucesivas fechas a una previa introducida
- *        y las escribe en un fichero de salida. 
- * @see   https://github.com/ULL-ESIT-IB-2020-2021/IB-P11-Classes-CMake/blob/master/Classes-CMake.md
+ * @brief Este programa calcula realiza las operaciones suma y resta con 
+ *        números de complejos. 
+ * @see   https://github.com/ULL-ESIT-IB-2020-2021/IB-P12-Classes-GTests-Exercism/blob/master/Classes-GTests-Exercism.md
+ * 
  * 
  * 
 */

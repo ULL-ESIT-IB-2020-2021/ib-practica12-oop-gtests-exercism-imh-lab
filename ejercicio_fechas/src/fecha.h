@@ -2,7 +2,11 @@
 #include <string>
 #include <vector>
 
-const std::string kHelpText = R"(Modo de uso: ./fechas fichero_entrada.txt fichero_salida.txt)";
+#ifndef FECHA_H
+#define FECHA_H
+
+const std::string kHelpText = R"(Modo de uso: ./fechas fichero_entrada.txt fichero_salida.txt
+**En el fichero escriba las fechas en el siguiente formato: dd/mm/aaaa, ejemplo: 03/04/2021**)";
 void Usage(int argc, char *argv[]);
 class Fechas{
   public: 
@@ -22,3 +26,5 @@ class Fechas{
 
 };
 Fechas IntroducirFechas(std::string fecha);
+
+#endif
