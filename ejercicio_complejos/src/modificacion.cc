@@ -10,6 +10,7 @@ class Complejo{
     
     Complejo Suma(Complejo complejo1, Complejo complejo2);
     Complejo Resta(Complejo complejo1, Complejo complejo2);
+    /*Modificacion*/
     friend int operator*(const Complejo &complex1, const int &entero);
     void Print(Complejo resultado);
 };
@@ -50,6 +51,7 @@ void Complejo::Print(Complejo resultado){
     std::cout << "El resultado de la operación es: " << resultado_real << resultado_imaginario << kImaginario <<std::endl;
   }
 }
+/*Modificación */
 int operator*(const Complejo &complex1, const int &entero){
     int resultado;
     resultado = (complex1.parte_real * entero) + (complex1.parte_imaginaria * entero);
@@ -63,6 +65,7 @@ int main (){
   resultado.Print(resultado);
   resultado = operacion.Resta(complejo1, complejo2);
   resultado.Print(resultado);
+  /*Modificación: */
   Complejo complejo3{1,2};
   int entero{3};
   int multiplicacion{complejo3 * entero};
